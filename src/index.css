@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #ffffff;
+  color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 2em 5em;
+}
+
+.card-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card{
+  width: 20em;
+  border: 1px solid #242424;
+  margin: 0 0 1.5em 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.card-text{
+  margin: 0 .35em;
+}
+
+.card-text-name{
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.card-text-title{
+  font-size: 1.2rem;
+}
+
+.card-img{
+  object-fit: cover;
+  width: 100%;
+}
+
+.selected-card{
+  border: 1px solid #242424;
+  margin-bottom: 2em;
+  display: flex;
+  background-color: #fff;
+}
+
+
+.friends-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1.5em;
+  padding: .5em;
+  border: 1px solid #24242455;
+  border-radius: 8px;
+}
+
+
+.selected-card-img{
+  width: 25em;
+  height: 20em;
+  align-self: center;
+  margin: 0 0 0 2em;
+}
+
+.selected-card-info{
+  flex: 4;
+  border: 1px solid #242424;
+  margin: 2em;
+}
+
+.selected-card-address{
+  flex: 1;
+  border: 1px solid #242424;
+  margin: 2em;
+}
+
+.selected-card-p{
+  font-size: 1.125rem;
+  margin-left: .725em;
+}
+
+.modifier-bold{
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.modifier-title{
+  font-size: 1.225rem;
+  color: #252525;
+  text-decoration: underline;
+}
+
+.loading{
+width:100%;
+}
