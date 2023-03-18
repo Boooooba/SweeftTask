@@ -8,7 +8,7 @@ export default function UserList() {
   const [selectedCardAdress, setSelectedCardAdress] = useState(null);
   const [selectedCardCompany, setSelectedCardCompany] = useState(null);
   const [selectedCardFriends, setSelectedCardFriends] = useState([]);
-  const [invis, setInvis] = useState(false)
+  const [invis, setInvis] = useState(true)
 
   const loadMoreData = async () => {
     setIsLoading(true);
@@ -43,12 +43,11 @@ export default function UserList() {
     fetchData();
   }, []);
 
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight &&
-      !isLoading
-    ) {
+const handleScroll = () => {
+    const scrollPosition = window.innerHeight + document.documentElement.scrollTop;
+    const threshold = document.documentElement.offsetHeight - 100;
+    
+    if (scrollPosition >= threshold && !isLoading) {
       loadMoreData();
     }
   };
@@ -80,7 +79,6 @@ export default function UserList() {
       );
       const friendsListData = await newResponse.json();
       setSelectedCardFriends((prevSelectedCardFriends) => [  ...prevSelectedCardFriends,  ...friendsListData.list,]);
-
     } catch (error) {
       console.error(error);
     }
@@ -162,7 +160,7 @@ export default function UserList() {
         </div>
       )}
 
-      <div className="card-wrapper">
+    { invis && <div className="card-wrapper">
         {data.map((card, index) => (
           <div
             key={`${card.id}-${index}`}
@@ -179,7 +177,7 @@ export default function UserList() {
           </div>
         ))}
         {isLoading && <p className="loading">Loading...</p>}
-      </div>
+      </div>}
     </div>
   );
 }
